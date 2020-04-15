@@ -9,7 +9,7 @@ const socket = io('ws://holaworld.netlify.com');
 const onGranted = (text) => {
     Push.create('Hello Mundo!', {
         body: text,
-        icon: '/icon/apple-touch-icon-57x57.png',
+        // icon: '/icon/apple-touch-icon-57x57.png',
         link: 'http://localhost:3000/',
         requireInteraction: true,
         vibrate: [200, 100]
@@ -31,22 +31,22 @@ const onPush = (text) => {
 const onEmit = (msg) => {
     Push.create('Hello Mundo!', {
         body: msg,
-        icon: '/icon/apple-touch-icon-57x57.png',
+        // icon: '/icon/apple-touch-icon-57x57.png',
         link: 'http://localhost:3000/',
         // vibrate: [200, 100]
 
     });
-    socket.emit('new-op', msg);
+    // socket.emit('new-op', msg);
 }
 
 const LandingPage = () => {
     const [text, setText] = useState('');
 
     useEffect(() => {
-        socket.on('new-remote-op', (msg) => {
-            setText(msg);
-            onPush(msg);
-        });
+        // socket.on('new-remote-op', (msg) => {
+        //     setText(msg);
+        //     onPush(msg);
+        // });
     }, [])
 
 
