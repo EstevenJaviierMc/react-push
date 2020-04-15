@@ -9,21 +9,26 @@ const LandingPage = () => {
 
     }, [])
     const onEmit = async () => {
-        const f = await Push.create('Hello Mundo!', {
-            body: text,
-            icon: '/icon/apple-touch-icon-57x57.png',
-            link: 'http://localhost:3000/',
-            requireInteraction: true,
-            vibrate: [200, 100],
-            onClick: function () {
-                console.log(this);
-            }
-        });
+        try {
+            const f = await Push.create('Hello Mundo!', {
+                body: text,
+                icon: '/icon/apple-touch-icon-57x57.png',
+                link: 'http://localhost:3000/',
+                requireInteraction: true,
+                vibrate: [200, 100],
+                onClick: function () {
+                    console.log(this);
+                }
+            });
 
-        const g = f.get();
-        console.log(g);
+            const g = f.get();
+            console.log(g);
 
-        alert(g.icon);
+            alert(g.icon);
+        } catch (error) {
+            alert('error.message');
+
+        }
 
     }
 
