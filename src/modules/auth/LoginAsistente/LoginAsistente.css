@@ -1,0 +1,80 @@
+.input-group-text {
+    width: 44px!important;
+}
+
+.bg-video, .canvas {
+    position: fixed!important;
+    right: 0!important;
+    left: 0!important;
+    bottom: 0!important;
+    top: auto!important;
+    object-fit: cover!important;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.video-placeholder {
+    position: fixed!important;
+    right: 0!important;
+    left: 0!important;
+    bottom: 0!important;
+    top: 0!important;
+    object-fit: cover!important;
+    object-position: top!important;
+    z-index: -1!important;
+    width: 100%!important;
+    height: 100%!important;
+    display: none;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px!important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(48, 91, 19, 0.3)!important;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+
+.navbar {
+    position: relative!important;
+    z-index: 2!important;
+}
+
+.input-group-text {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border: none!important;
+    color: white!important;
+    cursor: pointer!important;
+}
+
+.login-body {
+    padding: 3em 13px!important;
+    max-width: 450px!important;
+    z-index: 2!important;
+    position: relative!important;
+    margin: auto!important;
+    color: white!important;
+    padding-top: 3em!important;
+}
+
+.links {
+    color: white!important; 
+    text-decoration: underline!important;
+}
+
+@media only screen and (orientation:landscape) {
+    .canvas {
+        display: none !important;
+    }
+
+    .video-placeholder {
+        display: block !important;
+    }
+}
