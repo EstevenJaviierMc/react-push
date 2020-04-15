@@ -4,7 +4,7 @@ import Push from 'push.js';
 import $ from 'jquery';
 import io from 'socket.io-client';
 
-const socket = io('ws://localhost:8000');
+const socket = io('ws://hellomundo.netlify.com');
 
 const onGranted = (text) => {
     Push.create('Hello Mundo!', {
