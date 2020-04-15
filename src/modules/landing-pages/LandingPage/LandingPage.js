@@ -30,7 +30,7 @@ const onPush = (text) => {
 
 const onEmit = (msg) => {
     Push.create('Hello Mundo!', {
-        body: text,
+        body: msg,
         icon: '/icon/apple-touch-icon-57x57.png',
         link: 'http://localhost:3000/',
         vibrate: [200, 100]
