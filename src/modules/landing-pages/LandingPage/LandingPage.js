@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './LandingPage.css';
 import Push from 'push.js';
+import $ from 'jquery';
 
 const LandingPage = () => {
     const [text, setText] = useState('');
@@ -10,21 +11,36 @@ const LandingPage = () => {
     }, [])
     const onEmit = async () => {
         try {
-            const f = await Push.create('Hello Mundo!', {
-                body: text,
-                icon: '/icon/apple-touch-icon-57x57.png',
-                link: 'http://localhost:3000/',
-                requireInteraction: true,
-                vibrate: [200, 100],
-                onClick: function () {
-                    console.log(this);
-                }
+
+            $(document).ready(function () {
+                Push.config({
+                    serviceWorker: '/js/serviceWorker.min.js', // Sets a custom service worker script
+                    fallback: function (payload) {
+                        alert('aqui')
+                        Push.create("Hello world!", {
+                            body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, repellendus.",
+                            icon: '/icon/apple-touch-icon-57x57.png',
+                            requireInteraction: true,
+                            vibrate: [200, 100],
+                            onClick: function () {
+                                window.focus();
+                                this.close();
+                            }
+                        });
+                    }
+                });
+
+                Push.create("Hello world!", {
+                    body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, repellendus.",
+                    icon: '/icon/apple-touch-icon-57x57.png',
+                    requireInteraction: true,
+                    vibrate: [200, 100],
+                    onClick: function () {
+                        window.focus();
+                        this.close();
+                    }
+                });
             });
-
-            const g = f.get();
-            console.log(g);
-
-            alert(g.icon);
         } catch (error) {
             alert('error.message');
 
