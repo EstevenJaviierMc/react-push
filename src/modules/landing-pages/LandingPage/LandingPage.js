@@ -7,7 +7,7 @@ const LandingPage = () => {
 
     useEffect(() => {
         Push.config({
-            serviceWorker: '/push.js/bin/serviceWorker.min.js', // Sets a custom service worker script
+            serviceWorker: '/sw.js', // Sets a custom service worker script
             fallback: function (payload) {
                 alert('aqui')
             }
