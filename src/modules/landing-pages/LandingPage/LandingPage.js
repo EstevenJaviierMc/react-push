@@ -12,7 +12,7 @@ const LandingPage = () => {
                 alert('aqui')
             }
         });
-    }, [])
+    }, []);
 
     const onPush = () => {
         Push.create("Hello world!", {
@@ -24,14 +24,28 @@ const LandingPage = () => {
                 this.close();
             }
         });
-        alert('Ya');
     }
-
+    const onPush2 = () => {
+        Notification.requestPermission(async result => {
+            if (result === 'granted') {
+                navigator.serviceWorker.ready.then(registration => {
+                    registration.showNotification('Vibration Sample', {
+                        timeout: 5000,
+                        body: 'Buzz! Buzz!',
+                        vibrate: [200, 100, 200, 100, 200, 100, 200],
+                        tag: 'vibration-sample',
+                        requireInteraction: true,
+                    });
+                });
+            }
+        });
+    }
 
 
     return (
         <h1>Hello Mundo
             <button onClick={() => onPush()}>Push</button>
+            <button onClick={() => onPush2()}>Push2</button>
         </h1>
     );
 }
